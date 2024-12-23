@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { postData, updateData } from '../api/postApi'
 
 // eslint-disable-next-line react/prop-types
-const Form = ({data, setData, updateDataApi, setUpdateDataApi}) => {
+ export const Form = ({data, setData, updateDataApi, setUpdateDataApi}) => {
     const [addData, setAddData] = useState({
 
 title: "",
@@ -49,6 +49,7 @@ body: "",
 
     //update post data
 const  updatePostData=async()=>{
+    
     // eslint-disable-next-line react/prop-types
     try {
         const res = await updateData(updateDataApi.id,addData );
@@ -62,7 +63,7 @@ return prev.map((curElem)=>{
     setAddData({title: "" , body: ""});
     setUpdateDataApi({});
 }
-    } catch ({error}) {
+    } catch (error) {
         console.log(error);
     }
 }
